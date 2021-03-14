@@ -20,8 +20,8 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNome">Título*</label>
-                        <input type="text" class="form-control" name="titulo"
-                            maxlength="50" value="{{ livro.tituloLivro }}" required>
+                        <input type="text" class="form-control" name="titulo" maxlength="50"
+                            value="{{ livro.tituloLivro }}" required>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inputDescricao">Autor*</label>
@@ -32,19 +32,18 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputDescricao">Editora*</label>
-                        <input type="text" class="form-control" name="editora"
-                          value="{{livro.editora}}" maxlength="50">
+                        <input type="text" class="form-control" name="editora" value="{{livro.editora}}" maxlength="50">
                     </div>
 
                     <div class="form-group col-md-3">
                         <label for="inputEstoque">Data publicação</label>
-                        <input type="date" class="form-control" name="data_publicacao" 
-                        value="{{livro.datapublicacao}}" min="1">
+                        <input type="date" class="form-control" name="data_publicacao" value="{{livro.datapublicacao}}"
+                            min="1">
                     </div>
 
                     <div class="form-group col-md-2">
                         <label for="inputCategoria">Categoria*</label>
-                        <select name="categoria" class="form-control"required>
+                        <select name="categoria" class="form-control" required>
                             <option value="1" selected>{{ livro.categoria }}</option>
                             {% for cat in categorias %}
                             <option>{{ cat.categorias }}</option>
@@ -54,8 +53,7 @@
 
                     <div class="form-group col-md-9">
                         <label for="inputDetalhes">História*</label>
-                        <textarea class="form-control" name="historia" rows="8"
-                            minlength="1" maxlength="10000"
+                        <textarea class="form-control" name="historia" rows="15%" minlength="1" maxlength="10000"
                             required>{{ livro.texto }}</textarea>
                     </div>
 
@@ -103,15 +101,16 @@
 
             <hr>
             <br>
-            <h4>Faça o upload da imagem caso ela não esteja listada.</h4>
-            <h6>Atenção: Algumas imagens já podem esta sendo utilizadas.</h6>
-            <nav class="navbar navbar-expand-lg navbar-dark" style="background: #ECEFEE">
-                <h3>FAZER UPLOAD:</h3>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <h4>Faça o upload da imagem caso ela não esteja listada.</h4>
+                <h6>Atenção: Algumas imagens já podem esta sendo utilizadas.</h6>
+            </div>
+            <div class="alert alert-dark" role="alert">
                 <form action="/img/upload/{{ tipoImg }}" method="POST" enctype="multipart/form-data">
-                    Imagem: <input class="cortextUP" type="file" required name="imagem">
+                    <input class="cortextUP" type="file" required name="imagem">
                     <input type="submit" value="Salvar" onClick="history.go(0)">
                 </form>
-            </nav>
+            </div>
         </div>
     </div>
 </div>

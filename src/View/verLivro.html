@@ -15,10 +15,9 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-sm-12 col-md-4">
-            <div class="col-sm-12 card mb-4 shadow-sm">
-                <img class="card-img-top" src='/img/{{nome_extensao}}' alt="imagem não encontrada">
+            <div class="col-sm-12">
+                <img class="img-thumbnail" src='/img/{{nome_extensao}}' alt="imagem não encontrada">
                 <div class="card-body">
-                    <hr>
                     <h4 class="card-text">{{tituloLivro}}</h4>
                     <p class="card-text">Categoria: {{ categoria }}</p>
                     <p class="card-text">Autor: {{ autor }}</p>
@@ -30,14 +29,14 @@
                             <button type="button" class="btn btn-sm btn-outline-secondary" onClick="history.go(-1)">Voltar</button>
                             <a type="submit" class="btn btn-sm btn-outline-secondary" href="/clivro/editarLivro/{{id_livro}}">Editar</a>
                           </div>  
-                        <small class="text-muted">Update: {{update}}</small>
+                        <small class="text-muted"> {{update}}</small>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-8">
-            <textarea class="card-text col-sm-12 col-md-12
-            border-top rounded"  rows="20%" readonly> {{texto}} </textarea>
+        <div class="col-sm-12 col-md-8 card">
+            <textarea class="col-sm-12 col-md-12
+            border-0 rounded"  rows="20%" readonly> {{texto}} </textarea>
         </div>
 
     </div>
