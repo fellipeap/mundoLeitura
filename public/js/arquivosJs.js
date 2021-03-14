@@ -13,6 +13,7 @@ function selecionaImg(id_img, nome_extensao) {
     document.getElementById("imgSelecionada").textContent = "";
     document.getElementById("id_img_selec").value = id_img;
     document.getElementById("nome_extensao").src = novaImg;
+     
 }
 
 /*cadastro produtos
