@@ -16,14 +16,14 @@
     <div class="row justify-content-md-center">
         <div class="col-sm-12 col-md-4">
             <div class="col-sm-12">
-                <img class="img-thumbnail" src='/img/{{nome_extensao}}' alt="imagem não encontrada">
+                <img class="card-img-top" src='/img/{{nome_extensao}}' alt="imagem não encontrada">
                 <div class="card-body">
                     <h4 class="card-text">{{tituloLivro}}</h4>
-                    <p class="card-text">Categoria: {{ categoria }}</p>
-                    <p class="card-text">Autor: {{ autor }}</p>
-                    <p class="card-text">Editora: {{ editora }}</p>
-                    <p class="card-text">Premium: {{ premium }}</p>
-                    <p class="card-text">Publicação: {{ datapublicacao }}</p>
+                    <p class="card-text text-card">Categoria: {{ categoria }}</p>
+                    <p class="card-text text-card">Autor: {{ autor }}</p>
+                    <p class="card-text text-card">Editora: {{ editora }}</p>
+                    <p class="card-text text-card">Premium: {{ premium }}</p>
+                    <p class="card-text text-card">Publicação: {{ datapublicacao }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
                             <button type="button" class="btn btn-sm btn-outline-secondary" onClick="history.go(-1)">Voltar</button>
@@ -34,9 +34,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-8 card">
+        <div class="col-sm-12 col-md-8">
             <textarea class="col-sm-12 col-md-12
-            border-0 rounded"  rows="20%" readonly> {{texto}} </textarea>
+            border border-1 rounded"  rows="20%" readonly> {{texto}} </textarea>
         </div>
 
     </div>

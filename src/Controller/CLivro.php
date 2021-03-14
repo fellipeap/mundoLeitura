@@ -96,13 +96,12 @@ class CLivro
       window.history.back();
   </SCRIPT>");
       return;
-    }
+    }*/
     if ($aux[0]['premium'] == 1) {
       $aux[0]['premium'] = "Sim";
     } else {
       $aux[0]['premium'] = "Não";
     }
-*/
 
     $valores = [
       'id_livro' => $idLivro,
@@ -177,8 +176,6 @@ class CLivro
     ];
 
     echo '<pre>' . print_r($livro, true) . '</pre>';
-
-
 
     if (
       empty($livro['titulo']) || empty($livro['categoria']) ||

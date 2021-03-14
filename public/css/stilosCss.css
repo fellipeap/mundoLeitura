@@ -6,9 +6,13 @@ body {
 .color-fontes-faixas {
    font-family: Arial, Helvetica, sans-serif;
     margin-top: 1%;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .text-muted{
   font-size: 12px;
+}
+
+.text-card{
+  font-size: 18px;
 }
