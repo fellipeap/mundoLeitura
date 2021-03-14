@@ -1,0 +1,22 @@
+{
+    "name": "server/mundoleitura",
+    "description": "Servidor para o App MundoLeitura",
+    "authors": [
+        {
+            "name": "Fellipe",
+            "email": "mundoleiturabr@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.12",
+        "symfony/finder": "^5.2",
+        "symfony/routing": "^5.2",
+        "symfony/http-foundation": "^5.2"
+    },
+    
+    "autoload": {
+       "psr-4": {
+           "mundoleitura\\": "src/"
+       }
+    }
+}

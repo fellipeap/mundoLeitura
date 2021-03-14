@@ -1,0 +1,61 @@
+{% extends "super.twig" %}
+
+{% block bloco_head %}
+{{parent()}}
+{% endblock %}
+
+{% block cabecalho %}
+{{parent()}}
+{% endblock %}
+
+{% block buttons %}
+{% endblock %}
+
+{% block content %}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for cat in categorias %}
+        <div class="col-12">
+          <p class="p-2 mb-2 text-white rounded-right text-white text-monospace color-fontes-faixas">{{cat.categorias}}</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        {% for l in livros[cat.categorias] %}
+        <div class="col-md-3">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top img-thumbnail" src='/img/{{l.nome_extensao}}' alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{l.titulo}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-secondary" href="/clivro/verlivro/{{ l.id }}">Ver</a>
+                  <a type="submit" class="btn btn-sm btn-outline-secondary" href="/clivro/editarLivro/{{ l.id }}">Excluir</a>
+                </div>
+                <small class="text-muted">{{ l.data }}</small>
+                <small class="text-muted">{{ l.hora }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}        
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
+
+
+{% block footer %}
+<hr>
+<br>
+<br>
+{% endblock %}
+
+{% block scriptjs %}
+{{parent()}}
+{% endblock %}

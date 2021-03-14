@@ -1,0 +1,121 @@
+{% extends "super.twig" %}
+
+{% block bloco_head %}
+<!-- se colocar conteúdo sem o parent dentro do bloco ele sobresqueve o conteúdo da classe que esta herdando-->
+{{parent()}}
+
+{% endblock %}
+
+{% block cabecalho %}{% endblock %}
+
+{% block faixa %}{% endblock %}
+{% block buttons %}{% endblock %}
+
+{% block content %}
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Sobre</h4>
+            <p class="text-muted">Adicione alguma informação sobre o álbum abaixo (autor ou qualquer outro background).
+              Faça essas informações terem algumas frases, para a galera ter algumas informações que besliscar. Além
+              disso, use link nelas para as redes sociais ou informações de contato.</p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Contato</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Me siga no Twitter</a></li>
+              <li><a href="#" class="text-white">Curta no Facebook</a></li>
+              <li><a href="#" class="text-white">Me envie um e-mail</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+          </svg>
+          <strong>Álbum</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">{{ titulo }}</h1>
+        <p class="lead text-muted">Como posso entender tanta gente aceitando a mentira de que os sonhos desfazem aquilo
+          que o padre falou?</p>
+        <p>
+          <a href="#" class="btn btn-primary my-2">Call-to-action principal</a>
+          <a href="#" class="btn btn-secondary my-2">Call-to-action secundário</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          {% for cat in categorias %}
+          <div class="col-12">
+            <p class="p-2 mb-2 rounded-right text-monospace color-fontes-faixas">{{cat.categorias}}</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          {% for l in livros[cat.categorias] %}
+          <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top img-thumbnail" src='/img/{{l.nome_extensao}}' alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">{{l.titulo}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a class="btn btn-sm btn-outline-secondary" href="/clivro/verlivro/{{ l.id }}">Ver</a>
+                    <a type="submit" class="btn btn-sm btn-outline-secondary" href="/clivro/editarLivro/{{ l.id }}">Editar</a>
+                  </div>
+                  <small class="text-muted">{{ l.data }}</small>
+                  <small class="text-muted">{{ l.hora }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endfor %}        
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Voltar ao topo</a>
+      </p>
+      <p>Este exemplo de álbum é &copy; Bootstrap, mas, por favor, baixe e customize por conta própria.</p>
+      <p>Novo no Bootstrap? <a href="../../">Visite a página principal</a> ou leia nosso guia <a
+          href="../../getting-started/">getting started</a>.</p>
+    </div>
+  </footer>
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}
+
+{% block scriptjs %}
+{{parent()}}
+{% endblock %}

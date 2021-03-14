@@ -1,0 +1,1 @@
+Criar tabela para parâmetros(para cadastro de categorias por exemplo)

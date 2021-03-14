@@ -1,0 +1,128 @@
+{% extends "super.twig" %}
+
+{% block bloco_head %}
+{{parent()}}
+{% endblock %}
+
+{% block cabecalho %}
+{{parent()}}
+{% endblock %}
+
+{% block buttons %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex justify-content-center" style="margin-top: 2%;">
+
+        <div class="shadow-sm col-md-12">
+
+            <form action="/clivro/salvar" method="POST" class="form">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNome">Título*</label>
+                        <input type="text" class="form-control" name="titulo" placeholder="Título do livro"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputDescricao">Autor</label>
+                        <input type="text" class="form-control" name="autor" maxlength="50">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputDescricao">Editora</label>
+                        <input type="text" class="form-control" name="editora"
+                            placeholder="Primeira editora a publicar o livro" maxlength="50">
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="inputEstoque">Data publicação</label>
+                        <input type="date" class="form-control" name="data_publicacao" min="1">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="inputCategoria">Categoria</label>
+                        <select name="categoria" class="form-control" required>
+                            <option selected></option>
+                            {% for cat in categorias %}
+                            <option>{{ cat.categorias }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-9">
+                        <label for="inputDetalhes">História*</label>
+                        <textarea class="form-control" name="historia" rows="8"
+                            placeholder="Digite aqui sua história :-)" minlength="1" maxlength="10000"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="inputpremium">Conteúdo Premium*</label>
+                        <select name="premium" class="form-control" required>
+                            <option selected>Sim</option>
+                            <option>Não</option>
+                        </select>
+
+                        <label name="id_img" id="imgSelecionada">*</label>
+                        <input type="hidden" id="id_img_selec" name="id_img" required>
+                        <a href="#allImg">
+                            <img class="img-thumbnail" id="nome_extensao" src='/img/imgPadrao.svg'
+                                alt="Nenhuma imagem Selecionada" />
+                        </a>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <button type="reset" class="btn btn-danger">Redefinir</button>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="container">
+                <br>
+                <hr>
+                <h4 id="allImg">Selecione uma Imagem</h4>
+                <div class="row">
+                    {% for img in imgLivre %}
+                    <div class=" col-12 col-sm-10 col-md-4 col-lg-3 col-xl-3">
+                        <a href="#imgSelecionada">
+                            <img class="img-thumbnail" onclick="selecionaImg('{{img.id}}','{{img.nome_extensao}}')"
+                                src='/img/{{img.nome_extensao}}' alt="OCORREU UM ERRO INESPERADO" />
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <br>
+            </div>
+
+            <hr>
+            <br>
+            <h4>Faça o upload da imagem caso ela não esteja listada.</h4>
+            <h6>Atenção: Algumas imagens já podem esta sendo utilizadas.</h6>
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background: #ECEFEE">
+                <h3>FAZER UPLOAD:</h3>
+                <form action="/img/upload/{{ tipoImg }}" method="POST" enctype="multipart/form-data">
+                    Imagem: <input class="cortextUP" type="file" required name="imagem">
+                    <input type="submit" value="Salvar" onClick="history.go(0)">
+                </form>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+<hr>
+<br>
+<br>
+{% endblock %}
+
+{% block scriptjs %}
+{{parent()}}
+{% endblock %}

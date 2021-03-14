@@ -1,0 +1,59 @@
+{% extends "super.twig" %}
+
+{% block bloco_head %}
+{{parent()}}
+{% endblock %}
+
+{% block cabecalho %}
+{{parent()}}
+{% endblock %}
+
+{% block buttons %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 card mb-4 shadow-sm">
+                <img class="card-img-top" src='/img/{{nome_extensao}}' alt="imagem não encontrada">
+                <div class="card-body">
+                    <hr>
+                    <h4 class="card-text">{{tituloLivro}}</h4>
+                    <p class="card-text">Categoria: {{ categoria }}</p>
+                    <p class="card-text">Autor: {{ autor }}</p>
+                    <p class="card-text">Editora: {{ editora }}</p>
+                    <p class="card-text">Premium: {{ premium }}</p>
+                    <p class="card-text">Publicação: {{ datapublicacao }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onClick="history.go(-1)">Voltar</button>
+                            <a type="submit" class="btn btn-sm btn-outline-secondary" href="/clivro/editarLivro/{{id_livro}}">Editar</a>
+                          </div>  
+                        <small class="text-muted">Update: {{update}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8">
+            <textarea class="card-text col-sm-12 col-md-12
+            border-top rounded"  rows="20%" readonly> {{texto}} </textarea>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{{parent()}}
+<hr>
+<br>
+
+<br>
+{% endblock %}
+
+{% block scriptjs %}
+{{parent()}}
+{% endblock %}
