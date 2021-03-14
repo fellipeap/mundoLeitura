@@ -29,6 +29,7 @@ function preecheCampos(id_prod, nomeProd, descricao, detalhes,
     document.getElementById("categoria").value = categoria;
 }
 
+
 function setQuantidade(btn) {
 
     btn = parseInt(btn);
